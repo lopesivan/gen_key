@@ -9,7 +9,7 @@
 
 # users = web delta bravo alpha charlie gradle cmake jenv eng projetoY bash perl arduino ruby cpp qt wx java lua go gtk cansi python projetoX david embarcado alice linux maven rbenv luaenv pycharm rubymine datagrip clion rider goland webstorm idea rustup vim phpstorm circuito db makefile cabal command uff carol latex goenv envs plenv ivan gitolite android cargo dev dvm bob ndenv gui docker
 #users  = ivancarlos
-users  = dropbear
+users  = alice bob carol david
 ID_RSA = $(shell bash -c "echo $(users)|sed 's/\w\+/id_rsa_& id_rsa_&.pub/g'")
 
 KEYS   = $(ID_RSA)
