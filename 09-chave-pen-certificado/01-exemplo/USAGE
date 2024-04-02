@@ -1,0 +1,6 @@
+ciclo:
+	make
+	make encrypt
+	make decrypt
+	make show
+	make clean

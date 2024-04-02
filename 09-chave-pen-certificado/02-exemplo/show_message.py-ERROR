@@ -1,0 +1,23 @@
+from OpenSSL import crypto
+import sys
+
+# Arquivo criptografado e chave privada
+encrypted_file = "mensagem.criptografada"
+private_key_file = "key.pem"
+
+# Carrega a chave privada
+with open(private_key_file, "rb") as key_file:
+    private_key = crypto.load_privatekey(crypto.FILETYPE_PEM, key_file.read())
+
+# Carrega a mensagem criptografada
+with open(encrypted_file, "rb") as encrypted_file:
+    encrypted_data = encrypted_file.read()
+
+# Descriptografa a mensagem
+try:
+    decrypted_data = crypto.decrypt(
+        private_key, encrypted_data, "RSA_PKCS1_OAEP_PADDING"
+    )
+    print("Mensagem descriptografada:", decrypted_data.decode("utf-8"))
+except Exception as e:
+    print("Erro ao descriptografar a mensagem:", e)
