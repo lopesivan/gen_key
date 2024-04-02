@@ -1,0 +1,23 @@
+[Unit]
+Description=JetBrains License: the license server
+After=network.target
+
+[Service]
+PIDFile=/var/lib/jetbrains/jetbrains-license-server.pid
+ExecStart=/opt/JetBrains/lserver/linux/dvt-jb_licsrv.linux.amd64 \
+          -username dev \
+          -port 4343
+
+Restart=always
+RestartSec=10
+# Restart service after 10 seconds if node service crashes
+
+# Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=jetbrains
+User=jetbrains
+Group=jetbrains
+
+[Install]
+WantedBy=multi-user.target

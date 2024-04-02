@@ -1,0 +1,8 @@
+# Create a user with no login
+sudo groupadd jetbrains
+sudo useradd -g jetbrains -d /var/lib/jetbrains -s /bin/false jetbrains
+sudo usermod -G jetbrains jetbrains
+sudo mkdir /var/lib/jetbrains
+sudo touch /var/lib/jetbrains/jetbrains-server-log
+sudo touch /var/lib/jetbrains/jetbrains-server-errors
+sudo chown -R jetbrains:jetbrains /var/lib/jetbrains
